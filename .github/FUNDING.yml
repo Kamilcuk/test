@@ -1,8 +1,4 @@
 # github: Kamilcuk
 custom:
   - paypal.me/KamilCuk
-  # - RECEIVER: Kamil Cukrowski
-  #   IBAN: LT17 3250 0517 2229 3203
-  #   BIC/SWIFT: REVOLT21
-  #   BANK: Revolut Bank UAB Konstitucijos ave. 21B, 08130, Vilnius, Lithuania
-  #   BIC: CHASDEFX
+  - RECEIVER=Kamil Cukrowski IBAN=LT17 3250 0517 2229 3203 BIC/SWIFT=REVOLT21 BANK=Revolut Bank UAB Konstitucijos ave. 21B, 08130, Vilnius, Lithuania BIC=CHASDEFX
