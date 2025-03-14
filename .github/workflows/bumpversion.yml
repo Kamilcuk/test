@@ -27,6 +27,10 @@ jobs:
           wait-interval: 10
       - run: pip install bump-my-version
       - uses: actions/checkout@master
+      - name: Setup git
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
       - name: Bump version
         run: bump-my-version bump ${{ inputs.version }} -vv
       - name: Push changes
