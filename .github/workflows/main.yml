@@ -2,17 +2,17 @@ name: Run tests
 
 on:
   push:
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'
+    # tags:
+    #   - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: run unit tests
-        run: |
-          echo "Running unit tests"
+      # - name: run unit tests
+      #   run: |
+      #     echo "Running unit tests"
   # release:
   #   runs-on: ubuntu-latest
   #   needs: build
