@@ -21,7 +21,9 @@ jobs:
       - uses: actions/checkout@master
       - name: debug
         run: |
+          echo ${{ github.sha }}
           echo ${{ github.ref }}
+          echo ${{ github.head_ref }}
       - name: Wait for tests to succeed
         uses: lewagon/wait-on-check-action@v1.3.4
         with:
