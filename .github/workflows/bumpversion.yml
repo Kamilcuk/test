@@ -16,7 +16,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.ref_name == github.event.repository.default_branch
     steps:
       - name: Wait for tests to succeed
         with:
