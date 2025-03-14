@@ -26,16 +26,14 @@ jobs:
           check-name: Run tests
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10
-      - name: Conventional Changelog Action
-        id: conventional-changelog
-        uses: TriPSs/conventional-changelog-action@v5
+      - name: Bump version and create tag
+        uses: jaumann/github-bumpversion-action@v0.0.7
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: ${{ inputs.version }}
+      - name: Push changes
+        uses: ad-m/github-push-action@master
         with:
-          github-token: ${{ secrets.github_token }}
-          tag-prefix: 'v'
-          output-file: 'CHANGELOG.md'
-          release-count: '0'
-          skip-version-file: 'true'
-          git-branch: 'my-maintenance-branch'
-      - name: Bump version
-        run: sed -i 's/VERSION=.*/VERSION=${{ steps.conventional-changelog.version }}/' VERSION
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tags: true
 
