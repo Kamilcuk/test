@@ -19,6 +19,7 @@ jobs:
     if: github.ref_name == github.event.repository.default_branch
     steps:
       - name: Wait for tests to succeed
+        uses: lewagon/wait-on-check-action@v1.3.4
         with:
           ref: ${{ github.ref }}
           check-name: Run tests
