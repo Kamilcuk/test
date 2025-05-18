@@ -4,6 +4,9 @@ release:
   title-prefix: 'v'
   initial-version: '0.0.1'
   tag-prefix: 'v'
+branch:
+  version-branch-prefix: 'v'
+  bump-version-commit-prefix: 'v'
 categories:
   - title: 'Changes'
     commits:
@@ -13,4 +16,3 @@ files:
     line: 1
   - file-path: 'version.sh'
     line: 1
-
