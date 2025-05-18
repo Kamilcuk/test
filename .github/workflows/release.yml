@@ -22,14 +22,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm install
-      - run: npm run build
-      - run: npm run test
       - uses: MeilCli/bump-release-action@v2
         with:
           config_path: '.github/bump.yml'
