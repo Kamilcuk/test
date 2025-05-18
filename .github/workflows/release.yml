@@ -23,9 +23,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: MeilCli/bump-release-action@v2
+        id: create_release
         with:
           config_path: '.github/bump.yml'
           bump: ${{ github.event.inputs.bump }}
           dry_run: ${{ github.event.inputs.dry_run }}
           draft: ${{ github.event.inputs.draft }}
           pre_release: ${{ github.event.inputs.pre_release }}
+      - uses: actions/upload-release-asset
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.release.upload_url }}
+          asset_path: version.sh
+          asset_name: version.sh
+          asset_content_type: text/plain
