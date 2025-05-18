@@ -30,6 +30,10 @@ jobs:
           dry_run: ${{ github.event.inputs.dry_run }}
           draft: ${{ github.event.inputs.draft }}
           pre_release: ${{ github.event.inputs.pre_release }}
+      - run: |
+          cat <<EOF
+          ${{ steps.create_release.outputs }}
+          EOF
       - uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
